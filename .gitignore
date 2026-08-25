@@ -8,7 +8,7 @@ venv/
 
 # generated locally, shipped with the data release (see README)
 fk_cache/
-results_all_models/
+results_all_models/**/master.parquet
 
 # large intermediates and API batch state
 revision_appendix/gpt_variance_requests.jsonl

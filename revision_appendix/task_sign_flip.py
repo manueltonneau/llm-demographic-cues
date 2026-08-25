@@ -52,8 +52,9 @@ import numpy as np
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-PLOT = os.path.join(ROOT, "data", "plot_data")
+ROOT = os.environ.get("CUES_ROOT", os.path.abspath(os.path.join(HERE, "..", "..")))
+DATA_DIR = os.environ.get("CUES_DATA_DIR", os.path.join(ROOT, "data"))
+PLOT = os.path.join(DATA_DIR, "plot_data")
 
 TASK_FILES = {
     "medical": "medical_advice_likelihood_ratios_ALL_MODELS.csv",

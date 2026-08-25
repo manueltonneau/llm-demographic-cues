@@ -38,8 +38,9 @@ Tested with Python 3.12.
 The data is released separately from this code package (it is far too large for
 git). **TODO: add the data URL here.**
 
-By default the scripts expect it under `<repo>/data/`, i.e. next to this
-directory:
+By default the scripts look for a `data/` directory **next to this repository**
+(i.e. `../data` relative to the clone). Set `CUES_DATA_DIR` to put it anywhere
+else:
 
 ```
 data/
@@ -63,9 +64,9 @@ no code edits are needed.
 
 | Variable | Default | Used for |
 |----------|---------|----------|
-| `CUES_DATA_DIR` | `<repo>/data` | The data directory above. |
+| `CUES_DATA_DIR` | `../data` | The data directory above. |
 | `CUES_MASTER_DIR` | `<CUES_DATA_DIR>/masters` | The two pre-built `*_master.parquet` files. |
-| `CUES_ROOT` | parent of this directory | Only used to derive the default `CUES_DATA_DIR`. |
+| `CUES_ROOT` | parent of the clone | Only used to derive the default `CUES_DATA_DIR`. |
 | `CUES_FONT_DIR` | unset | Optional directory of CMU Serif `.ttf` files, so `make_recall_fig.py` matches the paper's typeface. |
 
 The `masters/` files are required only by `replicate_paper_specs.py`,
@@ -94,14 +95,17 @@ needed.
 
 ### Not committed here
 
-Two generated directories are large and reproducible, so they are part of the
-data release rather than of this repository:
+Two large generated artifacts are reproducible, so they ship with the data
+release rather than with this repository:
 
 - `fk_cache/` (~25 MB) — rebuild with `python build_fk_cache.py`
-- `results_all_models/` (~38 MB) — rebuild with `python build_master_and_regress.py llama3.1 olmo2 gpt52`
+- `results_all_models/**/master.parquet` (~38 MB) — rebuild with
+  `python build_master_and_regress.py llama3.1 olmo2 gpt52`
 
-`revision_appendix/task2_regress.py` and `task_verify_c4.py` read master tables
-from `results_all_models/`, so build it before running those.
+The regression CSVs under `results_all_models/` *are* committed, so
+`revision_appendix/task_verify_c4.py` runs out of the box.
+`revision_appendix/task2_regress.py` needs the master tables and skips any
+(model, task) whose master is absent.
 
 ## Running
 

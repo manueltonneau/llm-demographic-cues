@@ -55,8 +55,9 @@ import pandas as pd
 
 HERE      = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.environ.get("CUES_ROOT", os.path.dirname(os.path.dirname(HERE)))
-PROMPTS   = os.path.join(REPO_ROOT, "data", "prompts")
-GPT_RUN   = os.path.join(REPO_ROOT, "data", "gpt_run")
+DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
+PROMPTS   = os.path.join(DATA_DIR, "prompts")
+GPT_RUN   = os.path.join(DATA_DIR, "gpt_run")
 SAFE_PARQUET_MB = 50  # never read a fallback parquet larger than this into RAM
 
 TASKS = ["medical_advice", "legal_advice", "salary_rec"]

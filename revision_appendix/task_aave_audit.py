@@ -48,7 +48,8 @@ import pandas as pd
 HERE      = os.path.dirname(os.path.abspath(__file__))
 REPL_DIR  = os.path.dirname(HERE)
 REPO_ROOT = os.environ.get("CUES_ROOT", os.path.dirname(REPL_DIR))
-PROMPTS   = os.path.join(REPO_ROOT, "data", "prompts")
+DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
+PROMPTS   = os.path.join(DATA_DIR, "prompts")
 TASKS     = ["medical_advice", "legal_advice", "salary_rec"]
 
 # apostrophes are EXCLUDED: AAVE legitimately adds them for elision (wit', an', gettin')
