@@ -1,0 +1,4 @@
+model,pct_White,pct_Black,pct_Unknown
+gpt52,0.01,0.01,99.98
+llama3.1,98.25,1.7,0.05
+olmo2,99.98,0.0,0.02

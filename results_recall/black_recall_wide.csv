@@ -1,0 +1,10 @@
+model,task,convo_prefix,convo_prefix_prism,dialect,explicit,name_specific_hayes_elder,name_specific_rosenman,name_specific_tzioumis
+gpt52,legal_advice,0.006,0.0069,0.1192,0.9977,0.0882,0.3458,0.1192
+gpt52,medical_advice,0.0,0.0,0.1198,0.9829,0.0374,0.2184,0.0704
+gpt52,salary_rec,0.0,0.0,0.0524,0.9997,0.1322,0.5038,0.1666
+llama3.1,legal_advice,0.0035,0.021,0.3292,0.9849,0.1026,0.1949,0.1017
+llama3.1,medical_advice,0.0003,0.0196,0.0568,0.9969,0.0046,0.0261,0.0044
+llama3.1,salary_rec,0.0001,0.0115,0.048,0.9998,0.0339,0.1142,0.0335
+olmo2,legal_advice,0.0,0.0,0.0,0.4712,0.0,0.0,0.0
+olmo2,medical_advice,0.0,0.0,0.0,0.7616,0.0,0.0,0.0
+olmo2,salary_rec,0.0,0.0,0.0,0.7201,0.0,0.0,0.0

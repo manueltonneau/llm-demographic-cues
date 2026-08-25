@@ -1,0 +1,14 @@
+GPT-5.2 RUN-TO-RUN VARIANCE (App. B.3)
+=======================================================
+Design: 150 prompts x 8 cue conditions x 3 tasks, k=5 repetitions, temperature 1
+(no seed; the OpenAI API exposes none). 18,000 calls, 0 failed. batch_6a4f555f...
+
+AGGREGATE run-to-run stability (SD of the per-condition mean across the 5 runs):
+  - Binary tasks (affirmative rate): SD <= 0.021 (medical <=0.013, legal <=0.021).
+  - Salary (mean recommendation):    SD <= 0.72% of the mean (<= ~$680).
+This is roughly an order of magnitude smaller than the cross-cue differences we
+report (e.g. medical affirmative rate spans ~0.72-0.92 across cues; salary spans
+~$82k-94k), so sampling stochasticity does not drive the cue effects.
+
+Per-prompt (single-response) SD is naturally larger and is in
+gpt_variance_sd_by_condition.csv.

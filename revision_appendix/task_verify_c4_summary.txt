@@ -1,0 +1,25 @@
+T2. VERIFY CROSS-MODEL MECHANISM NUMBERS (Appendix C.4)
+============================================================
+
+CHECK 1 -- regression significance, full spec (3), prompt FE.
+  Inferred race (race_pred_Black) significant: 7/9  (claim: 7/9)
+  Flesch-Kincaid grade significant:            9/9  (claim: 9/9)
+  Inferred race NOT significant in: GPT-5.2/medical, GPT-5.2/legal
+
+    LLaMA-3.1 medical  | inferred-race     0.0592 (t=  86.7) *** | FK    -0.0129 (t= -449.3) ***
+    LLaMA-3.1 legal    | inferred-race     0.0593 (t= 104.8) *** | FK    -0.0167 (t= -338.1) ***
+    LLaMA-3.1 salary   | inferred-race   631.0542 (t=  34.8) *** | FK   134.0817 (t=   76.6) ***
+    OLMo-2    medical  | inferred-race    -0.0082 (t= -13.7) *** | FK     0.0044 (t=  226.6) ***
+    OLMo-2    legal    | inferred-race     0.0482 (t=  30.8) *** | FK     0.0368 (t=  754.6) ***
+    OLMo-2    salary   | inferred-race   339.3300 (t=  11.9) *** | FK   400.0678 (t=  242.6) ***
+    GPT-5.2   medical  | inferred-race     0.0002 (t=   0.1) ns  | FK     0.0048 (t=   23.5) ***
+    GPT-5.2   legal    | inferred-race    -0.0041 (t=  -1.2) ns  | FK    -0.0017 (t=   -4.4) ***
+    GPT-5.2   salary   | inferred-race  1239.4095 (t=  15.8) *** | FK  -253.9681 (t=  -23.2) ***
+
+CHECK 2 -- Black-recall-by-cue (Table black_recall_by_model).
+  Cells compared: 21 ; mismatches vs printed .tex: 0
+  (each printed value = simple mean of the 3 per-task recalls x 100)
+
+--- VERDICT ---
+  7/9 & 9/9 claim: CONFIRMED
+  Recall table matches source CSV & PDF: CONFIRMED

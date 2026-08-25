@@ -1,0 +1,41 @@
+T1. SIGN-FLIP / CONCLUSION-INSTABILITY ANALYSIS
+============================================================
+
+Data: per-cue Black/White (race) and Female/Male (gender) outcome
+ratios + 95% bootstrap CIs feeding Figures 3 and 11 (data/plot_data/*_likelihood_ratios / salary_lr_results).
+Cells = task x model (3 x 3 = 9 per demographic). Cues = the 7-8
+operationalisations per cell (4 name lists, 2 dialog sources,
+explicit; race adds dialect).
+
+--- RACE ---
+Metric A (sign-flip cells): 8/9 cells contain >=1 oppositely-signed, non-overlapping-CI cue pair.
+    * Medical / GPT-5.2: Dialect(1.077) vs Dialog (CAD)(0.998); Explicit(1.012) vs Dialog (CAD)(0.998); Name (Tzioumis)(1.004) vs Dialog (CAD)(0.998); Dialect(1.077) vs Dialog (PRISM)(0.993); Explicit(1.012) vs Dialog (PRISM)(0.993); Name (An)(1.001) vs Dialog (PRISM)(0.993); Name (Tzioumis)(1.004) vs Dialog (PRISM)(0.993); Dialect(1.077) vs Name (Hayes-Elder)(0.997); Dialect(1.077) vs Name (Rosenman)(1.000); Explicit(1.012) vs Name (Hayes-Elder)(0.997); Explicit(1.012) vs Name (Rosenman)(1.000); Name (An)(1.001) vs Name (Hayes-Elder)(0.997); Name (Tzioumis)(1.004) vs Name (Hayes-Elder)(0.997)
+    * Medical / LLaMA-3.1: Dialog (CAD)(1.005) vs Dialect(0.983); Dialog (PRISM)(1.010) vs Dialect(0.983); Explicit(1.025) vs Dialect(0.983); Name (An)(1.002) vs Dialect(0.983); Name (Hayes-Elder)(1.001) vs Dialect(0.983); Name (Rosenman)(1.003) vs Dialect(0.983); Name (Tzioumis)(1.007) vs Dialect(0.983)
+    * Legal / GPT-5.2: Dialog (PRISM)(1.021) vs Dialog (CAD)(0.987); Name (Hayes-Elder)(1.010) vs Dialog (CAD)(0.987); Name (Rosenman)(1.022) vs Dialog (CAD)(0.987); Name (Tzioumis)(1.007) vs Dialog (CAD)(0.987); Dialog (PRISM)(1.021) vs Explicit(0.959); Name (Hayes-Elder)(1.010) vs Explicit(0.959); Name (Rosenman)(1.022) vs Explicit(0.959); Name (Tzioumis)(1.007) vs Explicit(0.959)
+    * Legal / LLaMA-3.1: Name (Tzioumis)(1.000) vs Dialog (CAD)(0.950); Name (Tzioumis)(1.000) vs Dialog (PRISM)(0.960); Name (Tzioumis)(1.000) vs Dialect(0.984); Name (Tzioumis)(1.000) vs Explicit(0.994); Name (Tzioumis)(1.000) vs Name (An)(0.996); Name (Tzioumis)(1.000) vs Name (Hayes-Elder)(0.997); Name (Tzioumis)(1.000) vs Name (Rosenman)(0.991)
+    * Legal / OLMo-2: Dialect(1.035) vs Dialog (CAD)(0.995); Explicit(1.063) vs Dialog (CAD)(0.995); Dialect(1.035) vs Dialog (PRISM)(0.984); Explicit(1.063) vs Dialog (PRISM)(0.984); Dialect(1.035) vs Name (An)(0.999); Dialect(1.035) vs Name (Hayes-Elder)(0.998); Dialect(1.035) vs Name (Rosenman)(1.000); Dialect(1.035) vs Name (Tzioumis)(0.990); Explicit(1.063) vs Name (An)(0.999); Explicit(1.063) vs Name (Hayes-Elder)(0.998); Explicit(1.063) vs Name (Rosenman)(1.000); Explicit(1.063) vs Name (Tzioumis)(0.990)
+    * Salary / GPT-5.2: Dialog (PRISM)(1.004) vs Dialog (CAD)(0.999); Explicit(1.018) vs Dialog (CAD)(0.999); Name (An)(1.003) vs Dialog (CAD)(0.999); Name (Hayes-Elder)(1.003) vs Dialog (CAD)(0.999); Name (Tzioumis)(1.003) vs Dialog (CAD)(0.999)
+    * Salary / LLaMA-3.1: Dialog (PRISM)(1.003) vs Dialect(0.994); Explicit(1.015) vs Dialect(0.994); Name (An)(1.005) vs Dialect(0.994); Name (Tzioumis)(1.004) vs Dialect(0.994)
+    * Salary / OLMo-2: Explicit(1.006) vs Dialog (CAD)(0.998); Name (An)(1.001) vs Dialog (CAD)(0.998); Name (Rosenman)(1.001) vs Dialog (CAD)(0.998); Name (Tzioumis)(1.001) vs Dialog (CAD)(0.998); Explicit(1.006) vs Dialog (PRISM)(0.998); Name (An)(1.001) vs Dialog (PRISM)(0.998); Name (Rosenman)(1.001) vs Dialog (PRISM)(0.998); Name (Tzioumis)(1.001) vs Dialog (PRISM)(0.998); Explicit(1.006) vs Dialect(0.920); Name (An)(1.001) vs Dialect(0.920); Name (Rosenman)(1.001) vs Dialect(0.920); Name (Tzioumis)(1.001) vs Dialect(0.920); Explicit(1.006) vs Name (Hayes-Elder)(0.995); Name (An)(1.001) vs Name (Hayes-Elder)(0.995); Name (Rosenman)(1.001) vs Name (Hayes-Elder)(0.995); Name (Tzioumis)(1.001) vs Name (Hayes-Elder)(0.995)
+Metric B (single-cue error rate over 71 (cell,cue) combos):
+    majority reference: 23/71 = 32.4\% discordant (hard opposite-sign errors: 10).
+    pooled reference:   23/71 = 32.4\% discordant (hard opposite-sign errors: 12).
+  Salary only: 3/3 flip cells; single-cue error 8/24 = 33.3\% (majority ref), 33.3\% (pooled ref).
+
+--- GENDER ---
+Metric A (sign-flip cells): 8/9 cells contain >=1 oppositely-signed, non-overlapping-CI cue pair.
+    * Medical / GPT-5.2: Dialog (CAD)(1.001) vs Dialog (PRISM)(0.995); Dialog (CAD)(1.001) vs Explicit(0.985); Dialog (CAD)(1.001) vs Name (An)(0.993); Dialog (CAD)(1.001) vs Name (Hayes-Elder)(0.986); Dialog (CAD)(1.001) vs Name (Rosenman)(0.989); Dialog (CAD)(1.001) vs Name (Tzioumis)(0.989)
+    * Medical / LLaMA-3.1: Dialog (CAD)(1.006) vs Explicit(0.988); Dialog (CAD)(1.006) vs Name (An)(0.983); Dialog (CAD)(1.006) vs Name (Hayes-Elder)(0.977); Dialog (CAD)(1.006) vs Name (Rosenman)(0.980); Dialog (CAD)(1.006) vs Name (Tzioumis)(0.979); Dialog (PRISM)(1.007) vs Explicit(0.988); Dialog (PRISM)(1.007) vs Name (An)(0.983); Dialog (PRISM)(1.007) vs Name (Hayes-Elder)(0.977); Dialog (PRISM)(1.007) vs Name (Rosenman)(0.980); Dialog (PRISM)(1.007) vs Name (Tzioumis)(0.979)
+    * Medical / OLMo-2: Dialog (CAD)(1.004) vs Dialog (PRISM)(0.998); Dialog (CAD)(1.004) vs Name (An)(0.996); Dialog (CAD)(1.004) vs Name (Hayes-Elder)(0.995); Dialog (CAD)(1.004) vs Name (Rosenman)(0.994); Dialog (CAD)(1.004) vs Name (Tzioumis)(0.997); Explicit(1.007) vs Dialog (PRISM)(0.998); Explicit(1.007) vs Name (An)(0.996); Explicit(1.007) vs Name (Hayes-Elder)(0.995); Explicit(1.007) vs Name (Rosenman)(0.994); Explicit(1.007) vs Name (Tzioumis)(0.997)
+    * Legal / GPT-5.2: Dialog (PRISM)(1.019) vs Dialog (CAD)(0.997); Dialog (PRISM)(1.019) vs Explicit(0.989); Dialog (PRISM)(1.019) vs Name (Hayes-Elder)(0.998); Dialog (PRISM)(1.019) vs Name (Rosenman)(0.997); Dialog (PRISM)(1.019) vs Name (Tzioumis)(0.999)
+    * Legal / LLaMA-3.1: Dialog (CAD)(1.008) vs Explicit(0.994); Dialog (CAD)(1.008) vs Name (An)(0.997); Dialog (CAD)(1.008) vs Name (Hayes-Elder)(0.996); Dialog (CAD)(1.008) vs Name (Rosenman)(0.990); Dialog (CAD)(1.008) vs Name (Tzioumis)(0.994); Dialog (PRISM)(1.032) vs Explicit(0.994); Dialog (PRISM)(1.032) vs Name (An)(0.997); Dialog (PRISM)(1.032) vs Name (Hayes-Elder)(0.996); Dialog (PRISM)(1.032) vs Name (Rosenman)(0.990); Dialog (PRISM)(1.032) vs Name (Tzioumis)(0.994)
+    * Salary / GPT-5.2: Explicit(1.007) vs Dialog (CAD)(1.000); Name (An)(1.003) vs Dialog (CAD)(1.000); Name (Hayes-Elder)(1.004) vs Dialog (CAD)(1.000); Name (Rosenman)(1.002) vs Dialog (CAD)(1.000); Name (Tzioumis)(1.004) vs Dialog (CAD)(1.000); Explicit(1.007) vs Dialog (PRISM)(0.999); Name (An)(1.003) vs Dialog (PRISM)(0.999); Name (Hayes-Elder)(1.004) vs Dialog (PRISM)(0.999); Name (Rosenman)(1.002) vs Dialog (PRISM)(0.999); Name (Tzioumis)(1.004) vs Dialog (PRISM)(0.999)
+    * Salary / LLaMA-3.1: Dialog (PRISM)(1.007) vs Dialog (CAD)(0.999); Dialog (PRISM)(1.007) vs Explicit(0.976); Dialog (PRISM)(1.007) vs Name (An)(0.993); Dialog (PRISM)(1.007) vs Name (Hayes-Elder)(0.992); Dialog (PRISM)(1.007) vs Name (Rosenman)(0.993); Dialog (PRISM)(1.007) vs Name (Tzioumis)(0.994)
+    * Salary / OLMo-2: Dialog (PRISM)(1.004) vs Dialog (CAD)(1.000); Dialog (PRISM)(1.004) vs Explicit(0.976); Dialog (PRISM)(1.004) vs Name (An)(0.997); Dialog (PRISM)(1.004) vs Name (Hayes-Elder)(0.992); Dialog (PRISM)(1.004) vs Name (Rosenman)(0.993); Dialog (PRISM)(1.004) vs Name (Tzioumis)(0.996)
+Metric B (single-cue error rate over 62 (cell,cue) combos):
+    majority reference: 14/62 = 22.6\% discordant (hard opposite-sign errors: 8).
+    pooled reference:   14/62 = 22.6\% discordant (hard opposite-sign errors: 8).
+  Salary only: 3/3 flip cells; single-cue error 6/21 = 28.6\% (majority ref), 28.6\% (pooled ref).
+
+--- HEADLINE (paste-ready) ---
+Across the 9 race cells, 8 contain a genuine sign flip (oppositely-signed cue ratios with non-overlapping 95% CIs), and 32.4\% of single-cue conclusions disagree with the majority-cue reference in the same cell (32.4\% against a precision-weighted pooled reference). For gender the corresponding figures are 8/9 flip cells and 22.6\% (22.6\%) discordant single-cue conclusions.

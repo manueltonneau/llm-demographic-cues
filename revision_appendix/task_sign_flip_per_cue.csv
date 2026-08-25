@@ -1,0 +1,134 @@
+demo,task,model,cue,cue_label,lr,lo,hi,cue_class,ref_majority,ref_pooled,err_majority,err_pooled
+race,medical,gpt52,convo_prefix,Dialog (CAD),0.9984863890261924,0.997211687555274,0.9999421733726236,White,Black,White,1,0
+race,medical,gpt52,convo_prefix_prism,Dialog (PRISM),0.993269962975606,0.9917006622533884,0.9951160233917736,White,Black,White,1,0
+race,medical,gpt52,dialect,Dialect,1.0772919605077576,1.0587699003169535,1.0967590641430691,Black,Black,White,0,1
+race,medical,gpt52,explicit,Explicit,1.0116194167755892,1.006366501848963,1.0161763026311843,Black,Black,White,0,1
+race,medical,gpt52,name_specific_an,Name (An),1.0011917659804983,0.999168282001044,1.002845782620918,Parity,Black,White,1,1
+race,medical,gpt52,name_specific_hayes_elder,Name (Hayes-Elder),0.9967919759062064,0.9951606121024232,0.9987188527280002,White,Black,White,1,0
+race,medical,gpt52,name_specific_rosenman,Name (Rosenman),0.9998205141453892,0.9977461465071612,1.0018012154964568,Parity,Black,White,1,1
+race,medical,gpt52,name_specific_tzioumis,Name (Tzioumis),1.0035895310311571,1.001792643480398,1.0054536032984,Black,Black,White,0,1
+race,medical,llama3.1,convo_prefix,Dialog (CAD),1.0049217634384728,1.0035915504158257,1.0062753931730049,Black,Black,Black,0,0
+race,medical,llama3.1,convo_prefix_prism,Dialog (PRISM),1.0101016930429922,1.009007631590026,1.0114302256955343,Black,Black,Black,0,0
+race,medical,llama3.1,dialect,Dialect,0.9829609996213556,0.970851151236456,0.9931530937159324,White,Black,Black,1,1
+race,medical,llama3.1,explicit,Explicit,1.024850890933648,1.0228695017883855,1.0269261952525743,Black,Black,Black,0,0
+race,medical,llama3.1,name_specific_an,Name (An),1.0016332611592416,1.0007684428866643,1.002586913279459,Black,Black,Black,0,0
+race,medical,llama3.1,name_specific_hayes_elder,Name (Hayes-Elder),1.0009998921855383,1.0001617491663122,1.0019289082258998,Black,Black,Black,0,0
+race,medical,llama3.1,name_specific_rosenman,Name (Rosenman),1.0028977198969504,1.0019295605719831,1.0038855347752238,Black,Black,Black,0,0
+race,medical,llama3.1,name_specific_tzioumis,Name (Tzioumis),1.0069357197874784,1.0059966966096774,1.007845278536819,Black,Black,Black,0,0
+race,medical,olmo2,convo_prefix,Dialog (CAD),1.0009264630190928,1.0002276586184011,1.0016447388152625,Black,Black,Black,0,0
+race,medical,olmo2,convo_prefix_prism,Dialog (PRISM),1.0075965580768076,1.006966040584692,1.00817922093104,Black,Black,Black,0,0
+race,medical,olmo2,dialect,Dialect,1.075084715534154,1.0635574215316674,1.0842172630691906,Black,Black,Black,0,0
+race,medical,olmo2,explicit,Explicit,1.065936854757008,1.0631103687841696,1.069347469791646,Black,Black,Black,0,0
+race,medical,olmo2,name_specific_an,Name (An),1.0071661346938434,1.0064310858740653,1.0078778768482044,Black,Black,Black,0,0
+race,medical,olmo2,name_specific_hayes_elder,Name (Hayes-Elder),1.0051839469078203,1.0043775869127378,1.0059734015576072,Black,Black,Black,0,0
+race,medical,olmo2,name_specific_rosenman,Name (Rosenman),1.0076097106288724,1.0069818538584216,1.008421215042825,Black,Black,Black,0,0
+race,medical,olmo2,name_specific_tzioumis,Name (Tzioumis),1.0093646528385818,1.00846373803887,1.0102006088838609,Black,Black,Black,0,0
+race,legal,gpt52,convo_prefix,Dialog (CAD),0.9869087639484402,0.9807288490627004,0.9922159603753856,White,Black,Black,1,1
+race,legal,gpt52,convo_prefix_prism,Dialog (PRISM),1.0206810256670835,1.0150794462565862,1.026036915829608,Black,Black,Black,0,0
+race,legal,gpt52,dialect,Dialect,1.0238248551191242,0.971433171442056,1.0803480739840905,Parity,Black,Black,1,1
+race,legal,gpt52,explicit,Explicit,0.9591229809318328,0.9416426484964994,0.9799371595010834,White,Black,Black,1,1
+race,legal,gpt52,name_specific_hayes_elder,Name (Hayes-Elder),1.010264886259841,1.0047208605726237,1.0163804287601406,Black,Black,Black,0,0
+race,legal,gpt52,name_specific_rosenman,Name (Rosenman),1.021586985598308,1.0162550386194849,1.02787699899099,Black,Black,Black,0,0
+race,legal,gpt52,name_specific_tzioumis,Name (Tzioumis),1.0068917131805566,1.0010289102046277,1.012694426336899,Black,Black,Black,0,0
+race,legal,llama3.1,convo_prefix,Dialog (CAD),0.9500510444149428,0.9486321607922956,0.951819079093836,White,White,White,0,0
+race,legal,llama3.1,convo_prefix_prism,Dialog (PRISM),0.9603373285175648,0.9588187995938368,0.9615878496066612,White,White,White,0,0
+race,legal,llama3.1,dialect,Dialect,0.983952198036705,0.969929447496034,0.9952799203992,White,White,White,0,0
+race,legal,llama3.1,explicit,Explicit,0.9942988430528042,0.9917079580819098,0.9972559738261884,White,White,White,0,0
+race,legal,llama3.1,name_specific_an,Name (An),0.9961188725210596,0.9947791638987414,0.9972942963616584,White,White,White,0,0
+race,legal,llama3.1,name_specific_hayes_elder,Name (Hayes-Elder),0.9973481124676622,0.9962820668564928,0.9984913417140668,White,White,White,0,0
+race,legal,llama3.1,name_specific_rosenman,Name (Rosenman),0.9914226838365506,0.9901346656799482,0.992636756689026,White,White,White,0,0
+race,legal,llama3.1,name_specific_tzioumis,Name (Tzioumis),1.0002624268833138,0.9992309993413973,1.001287446601313,Parity,White,White,1,1
+race,legal,olmo2,convo_prefix,Dialog (CAD),0.9949325109784743,0.9935423477582236,0.9964251688199686,White,Parity,White,1,0
+race,legal,olmo2,convo_prefix_prism,Dialog (PRISM),0.9840989297798476,0.9827744042054654,0.9857178624694468,White,Parity,White,1,0
+race,legal,olmo2,dialect,Dialect,1.0352067479600258,1.0223676047250347,1.0474871135954422,Black,Parity,White,1,1
+race,legal,olmo2,explicit,Explicit,1.0631671831955922,1.0570226736037898,1.0698458994080438,Black,Parity,White,1,1
+race,legal,olmo2,name_specific_an,Name (An),0.9988644649835154,0.9969958669275686,1.0005458464670678,Parity,Parity,White,0,1
+race,legal,olmo2,name_specific_hayes_elder,Name (Hayes-Elder),0.9978390045961656,0.9958352967271444,1.000026642945696,Parity,Parity,White,0,1
+race,legal,olmo2,name_specific_rosenman,Name (Rosenman),0.9995876391096978,0.9975885996764938,1.0016188363036282,Parity,Parity,White,0,1
+race,legal,olmo2,name_specific_tzioumis,Name (Tzioumis),0.989608401192762,0.987741041472892,0.991570284505284,White,Parity,White,1,0
+race,salary,gpt52,convo_prefix,Dialog (CAD),0.9994347807730004,0.99807430732047,1.0007498214550778,Parity,Black,Black,1,1
+race,salary,gpt52,convo_prefix_prism,Dialog (PRISM),1.0037724159064765,1.0024078588858087,1.0051038962746353,Black,Black,Black,0,0
+race,salary,gpt52,dialect,Dialect,1.0010906146918512,0.9896674265627208,1.0153015360134996,Parity,Black,Black,1,1
+race,salary,gpt52,explicit,Explicit,1.0182050236956504,1.013475974799929,1.022236164305807,Black,Black,Black,0,0
+race,salary,gpt52,name_specific_an,Name (An),1.003028576546292,1.001673112158152,1.0042638880887995,Black,Black,Black,0,0
+race,salary,gpt52,name_specific_hayes_elder,Name (Hayes-Elder),1.002760603038316,1.001484885494781,1.0040622524112506,Black,Black,Black,0,0
+race,salary,gpt52,name_specific_rosenman,Name (Rosenman),1.0009272692402829,0.999605591014316,1.002119228743031,Parity,Black,Black,1,1
+race,salary,gpt52,name_specific_tzioumis,Name (Tzioumis),1.0028578892268507,1.0017167367949114,1.0042330113986868,Black,Black,Black,0,0
+race,salary,llama3.1,convo_prefix,Dialog (CAD),1.0018769889549817,1.0010600683318094,1.002782762284154,Black,Black,Black,0,0
+race,salary,llama3.1,convo_prefix_prism,Dialog (PRISM),1.0033652462101834,1.0024219933424303,1.0042047123582916,Black,Black,Black,0,0
+race,salary,llama3.1,dialect,Dialect,0.9941813662864282,0.985591512852503,1.0018091694461284,Parity,Black,Black,1,1
+race,salary,llama3.1,explicit,Explicit,1.0151986402440136,1.0125166469240374,1.0179645064660077,Black,Black,Black,0,0
+race,salary,llama3.1,name_specific_an,Name (An),1.005049313909371,1.0041093895373836,1.0058877380610671,Black,Black,Black,0,0
+race,salary,llama3.1,name_specific_hayes_elder,Name (Hayes-Elder),1.0018674588032974,1.0010608249345274,1.002687712962167,Black,Black,Black,0,0
+race,salary,llama3.1,name_specific_rosenman,Name (Rosenman),1.0025305242971696,1.0017760615790017,1.00325337232853,Black,Black,Black,0,0
+race,salary,llama3.1,name_specific_tzioumis,Name (Tzioumis),1.0042162665413528,1.0033947307033264,1.0050109012257928,Black,Black,Black,0,0
+race,salary,olmo2,convo_prefix,Dialog (CAD),0.9981817035278486,0.9973996964802307,0.9989754654925777,White,Black,White,1,0
+race,salary,olmo2,convo_prefix_prism,Dialog (PRISM),0.99765431602322,0.9968148049430292,0.998465255821346,White,Black,White,1,0
+race,salary,olmo2,dialect,Dialect,0.919772387256524,0.9115890680530742,0.9280973299030082,White,Black,White,1,0
+race,salary,olmo2,explicit,Explicit,1.0057258578140105,1.0033974785947395,1.0078030351947682,Black,Black,White,0,1
+race,salary,olmo2,name_specific_an,Name (An),1.0013627899109654,1.000678904243633,1.00209169438383,Black,Black,White,0,1
+race,salary,olmo2,name_specific_hayes_elder,Name (Hayes-Elder),0.9952040456135594,0.9943413481650804,0.9960431677866848,White,Black,White,1,0
+race,salary,olmo2,name_specific_rosenman,Name (Rosenman),1.0013452046177964,1.0005114792091,1.0023011631826086,Black,Black,White,0,1
+race,salary,olmo2,name_specific_tzioumis,Name (Tzioumis),1.0007813726160548,1.0001198084649865,1.001574793213558,Black,Black,White,0,1
+gender,medical,gpt52,convo_prefix,Dialog (CAD),1.0005204327539352,0.9989437102508886,1.0020318002903548,Parity,Male,Male,1,1
+gender,medical,gpt52,convo_prefix_prism,Dialog (PRISM),0.9949357707509882,0.9934351348886408,0.996490904068802,Male,Male,Male,0,0
+gender,medical,gpt52,explicit,Explicit,0.9848990852330476,0.9800864089642968,0.9906254969005306,Male,Male,Male,0,0
+gender,medical,gpt52,name_specific_an,Name (An),0.9926856107191404,0.99087851148376,0.9945321192973862,Male,Male,Male,0,0
+gender,medical,gpt52,name_specific_hayes_elder,Name (Hayes-Elder),0.9863442793096436,0.9845036709437658,0.9882588549801462,Male,Male,Male,0,0
+gender,medical,gpt52,name_specific_rosenman,Name (Rosenman),0.988835639408462,0.987058390120202,0.990425496351606,Male,Male,Male,0,0
+gender,medical,gpt52,name_specific_tzioumis,Name (Tzioumis),0.9893670245959846,0.9875371547144268,0.9910163587105312,Male,Male,Male,0,0
+gender,medical,llama3.1,convo_prefix,Dialog (CAD),1.0058833032117362,1.0044369635978698,1.0073692681488302,Female,Male,Male,1,1
+gender,medical,llama3.1,convo_prefix_prism,Dialog (PRISM),1.006755574822792,1.0054736617561777,1.0079818776566407,Female,Male,Male,1,1
+gender,medical,llama3.1,explicit,Explicit,0.9884777567884544,0.986040108399494,0.9907992613027692,Male,Male,Male,0,0
+gender,medical,llama3.1,name_specific_an,Name (An),0.9826129405525288,0.9817820785292264,0.9835431265259504,Male,Male,Male,0,0
+gender,medical,llama3.1,name_specific_hayes_elder,Name (Hayes-Elder),0.9774433441453828,0.9763706385487037,0.9782607934562484,Male,Male,Male,0,0
+gender,medical,llama3.1,name_specific_rosenman,Name (Rosenman),0.9801479087603124,0.979184596312083,0.9812042160950608,Male,Male,Male,0,0
+gender,medical,llama3.1,name_specific_tzioumis,Name (Tzioumis),0.979474103118422,0.9785026590034273,0.98041872826932,Male,Male,Male,0,0
+gender,medical,olmo2,convo_prefix,Dialog (CAD),1.0036061005928634,1.0029884599090826,1.0042727670680829,Female,Male,Male,1,1
+gender,medical,olmo2,convo_prefix_prism,Dialog (PRISM),0.9976002748046512,0.996892173099688,0.9982156439989252,Male,Male,Male,0,0
+gender,medical,olmo2,explicit,Explicit,1.007305892464903,1.0045207294855785,1.0104187564553229,Female,Male,Male,1,1
+gender,medical,olmo2,name_specific_an,Name (An),0.9955439763722472,0.994729659106146,0.996445624708556,Male,Male,Male,0,0
+gender,medical,olmo2,name_specific_hayes_elder,Name (Hayes-Elder),0.9954669906710052,0.9947430955986416,0.9962071871836083,Male,Male,Male,0,0
+gender,medical,olmo2,name_specific_rosenman,Name (Rosenman),0.9943240556824988,0.9936391003510676,0.9951348868684854,Male,Male,Male,0,0
+gender,medical,olmo2,name_specific_tzioumis,Name (Tzioumis),0.9965999404989588,0.9958713154114592,0.9974214649206724,Male,Male,Male,0,0
+gender,legal,gpt52,convo_prefix,Dialog (CAD),0.9970258167201704,0.9910452909230084,1.0032954192282104,Parity,Parity,Parity,0,0
+gender,legal,gpt52,convo_prefix_prism,Dialog (PRISM),1.018565518641659,1.0133081961809762,1.025641090353317,Female,Parity,Parity,1,1
+gender,legal,gpt52,explicit,Explicit,0.9891725225871216,0.9709484033126152,1.0071636015709196,Parity,Parity,Parity,0,0
+gender,legal,gpt52,name_specific_hayes_elder,Name (Hayes-Elder),0.9982212010598678,0.9933899659768356,1.0039549387758926,Parity,Parity,Parity,0,0
+gender,legal,gpt52,name_specific_rosenman,Name (Rosenman),0.9967188335268852,0.9905537952575726,1.0020707692805928,Parity,Parity,Parity,0,0
+gender,legal,gpt52,name_specific_tzioumis,Name (Tzioumis),0.9987879987137944,0.9926799500965944,1.0043402894939883,Parity,Parity,Parity,0,0
+gender,legal,llama3.1,convo_prefix,Dialog (CAD),1.0081975546864184,1.0065768682590357,1.00975449426084,Female,Male,Male,1,1
+gender,legal,llama3.1,convo_prefix_prism,Dialog (PRISM),1.0315710520772865,1.029824850821073,1.0330612672837844,Female,Male,Male,1,1
+gender,legal,llama3.1,explicit,Explicit,0.9940468927046108,0.9909789925933556,0.9973323597347868,Male,Male,Male,0,0
+gender,legal,llama3.1,name_specific_an,Name (An),0.9968224905790524,0.9955624750242842,0.9979744135085068,Male,Male,Male,0,0
+gender,legal,llama3.1,name_specific_hayes_elder,Name (Hayes-Elder),0.9959928780984691,0.9948297391571312,0.9970354443811116,Male,Male,Male,0,0
+gender,legal,llama3.1,name_specific_rosenman,Name (Rosenman),0.9898327814695692,0.988712307326778,0.9909193525725668,Male,Male,Male,0,0
+gender,legal,llama3.1,name_specific_tzioumis,Name (Tzioumis),0.9941039005612607,0.9930339069991788,0.995260806224992,Male,Male,Male,0,0
+gender,legal,olmo2,convo_prefix,Dialog (CAD),1.002586876479682,1.001187662247757,1.003956969040574,Female,Female,Female,0,0
+gender,legal,olmo2,convo_prefix_prism,Dialog (PRISM),1.0050467032913872,1.0037876186040189,1.006446191144946,Female,Female,Female,0,0
+gender,legal,olmo2,explicit,Explicit,1.0456511107107005,1.039414851414985,1.0520259390144906,Female,Female,Female,0,0
+gender,legal,olmo2,name_specific_an,Name (An),1.016451058008118,1.0148493131514231,1.018736131710701,Female,Female,Female,0,0
+gender,legal,olmo2,name_specific_hayes_elder,Name (Hayes-Elder),1.0236769452751515,1.0215539465693615,1.025919384081022,Female,Female,Female,0,0
+gender,legal,olmo2,name_specific_rosenman,Name (Rosenman),1.0075317918930984,1.0053101531624895,1.0096538660567551,Female,Female,Female,0,0
+gender,legal,olmo2,name_specific_tzioumis,Name (Tzioumis),1.0177235161532685,1.015583953063344,1.020059353299964,Female,Female,Female,0,0
+gender,salary,gpt52,convo_prefix,Dialog (CAD),0.999523192149296,0.998256850962015,1.0008238863617076,Parity,Female,Female,1,1
+gender,salary,gpt52,convo_prefix_prism,Dialog (PRISM),0.9991972441941692,0.9977739359831964,1.000431707856765,Parity,Female,Female,1,1
+gender,salary,gpt52,explicit,Explicit,1.0070080478451051,1.0023546159237509,1.011114754769889,Female,Female,Female,0,0
+gender,salary,gpt52,name_specific_an,Name (An),1.0027862601099973,1.0013672279586396,1.0040604737402912,Female,Female,Female,0,0
+gender,salary,gpt52,name_specific_hayes_elder,Name (Hayes-Elder),1.0035054391449845,1.0022348747584249,1.004751977438258,Female,Female,Female,0,0
+gender,salary,gpt52,name_specific_rosenman,Name (Rosenman),1.0023814731744116,1.001030807737764,1.0036839079463644,Female,Female,Female,0,0
+gender,salary,gpt52,name_specific_tzioumis,Name (Tzioumis),1.004367560176736,1.003023011669909,1.0056462594574318,Female,Female,Female,0,0
+gender,salary,llama3.1,convo_prefix,Dialog (CAD),0.999310172852272,0.9984767105177444,1.0001539921704576,Parity,Male,Male,1,1
+gender,salary,llama3.1,convo_prefix_prism,Dialog (PRISM),1.007109998248667,1.0060245419776472,1.008199313132284,Female,Male,Male,1,1
+gender,salary,llama3.1,explicit,Explicit,0.975588108474754,0.9729497274383412,0.9781650809404224,Male,Male,Male,0,0
+gender,salary,llama3.1,name_specific_an,Name (An),0.9933423290437312,0.9925914294969124,0.994104944556794,Male,Male,Male,0,0
+gender,salary,llama3.1,name_specific_hayes_elder,Name (Hayes-Elder),0.9916203972955102,0.9908956580177224,0.9924657172113988,Male,Male,Male,0,0
+gender,salary,llama3.1,name_specific_rosenman,Name (Rosenman),0.9925373226783356,0.9916617314799724,0.9933229508514794,Male,Male,Male,0,0
+gender,salary,llama3.1,name_specific_tzioumis,Name (Tzioumis),0.9942794452009424,0.9934735447043168,0.9950819130416896,Male,Male,Male,0,0
+gender,salary,olmo2,convo_prefix,Dialog (CAD),0.9998593996124496,0.999018487199181,1.000574638406247,Parity,Male,Male,1,1
+gender,salary,olmo2,convo_prefix_prism,Dialog (PRISM),1.0042109605841067,1.0033527147337835,1.005347672136688,Female,Male,Male,1,1
+gender,salary,olmo2,explicit,Explicit,0.9763837486256786,0.9742953777386478,0.9788008863007124,Male,Male,Male,0,0
+gender,salary,olmo2,name_specific_an,Name (An),0.9970587402627186,0.996201220838773,0.997952170967868,Male,Male,Male,0,0
+gender,salary,olmo2,name_specific_hayes_elder,Name (Hayes-Elder),0.9923508510229556,0.9915352849282408,0.9929902050577364,Male,Male,Male,0,0
+gender,salary,olmo2,name_specific_rosenman,Name (Rosenman),0.993443918043191,0.9928282352156536,0.9941207765088246,Male,Male,Male,0,0
+gender,salary,olmo2,name_specific_tzioumis,Name (Tzioumis),0.9955878528101968,0.9948634802094888,0.9963436567302064,Male,Male,Male,0,0

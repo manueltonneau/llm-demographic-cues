@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+.DS_Store
+
+# generated locally, shipped with the data release (see README)
+fk_cache/
+results_all_models/
+
+# large intermediates and API batch state
+revision_appendix/gpt_variance_requests.jsonl
+revision_appendix/gpt_variance_output.jsonl
+revision_appendix/gpt_variance_batch.json
+revision_appendix/gpt_variance_manifest.csv
+revision_appendix/task_aave_audit_pairs.csv
+revision_appendix/task_aave_audit_flags.csv

@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{llrrr}
+\toprule
+Model & Task & $N$ & Inferred Black & FK grade \\
+\midrule
+LLaMA-3.1 & Medical & 4,440 & 0.0608$^{*}$ & -0.1003$^{***}$ \\
+LLaMA-3.1 & Legal & 5,000 & -0.0000 & 0.0427$^{***}$ \\
+LLaMA-3.1 & Salary & 5,000 & -11,057$^{***}$ & -1,257$^{**}$ \\
+OLMo-2 & Medical & 4,440 & -- & -0.0217$^{***}$ \\
+OLMo-2 & Legal & 5,000 & -- & -0.0114$^{**}$ \\
+OLMo-2 & Salary & 5,000 & -- & -771 \\
+GPT-5.2 & Medical & 4,440 & -0.0235 & -0.0448$^{***}$ \\
+GPT-5.2 & Legal & 5,000 & 0.0300 & 0.0725$^{***}$ \\
+GPT-5.2 & Salary & 5,000 & 6,214$^{**}$ & -1,954$^{***}$ \\
+\bottomrule
+\end{tabular}
+\caption{Dialect-only (AAVE) regression: model response on inferred race (Black vs.\ White ref.) and Flesch--Kincaid grade, per model and task (OLS; no prompt FE, cued race dropped as constant). ``--'' = inferred Black not estimable (model predicts White/Unknown for nearly all AAVE prompts). $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.}
+\label{tab:dialect_only_regression}
+\end{table}
