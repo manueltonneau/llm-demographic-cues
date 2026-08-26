@@ -43,7 +43,13 @@ missing path, before writing anything.
 ## Data
 
 The data is released separately from this code package (it is far too large for
-git). **TODO: add the data URL here.**
+git):
+
+**https://huggingface.co/datasets/manueltonneau/llm-demographic-cues**
+
+```bash
+hf download manueltonneau/llm-demographic-cues --repo-type dataset --local-dir ../data
+```
 
 By default the scripts look for a `data/` directory **next to this repository**
 (i.e. `../data` relative to the clone). Set `CUES_DATA_DIR` to put it anywhere
