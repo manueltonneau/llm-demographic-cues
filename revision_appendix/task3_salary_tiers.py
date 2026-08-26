@@ -17,6 +17,13 @@ REPL_DIR  = os.path.dirname(HERE)                                  # the repo ro
 REPO_ROOT = os.environ.get("CUES_ROOT", os.path.dirname(REPL_DIR))
 DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from cues_io import require_dir, require_file, require_any
+require_file(os.path.join(DATA_DIR, "prompts", "salary_rec",
+                          "salary_rec_neutral_constrained.parquet"),
+             "no-cue salary prompts")
+
 # ---- load per-seed salary aggregates (llama, olmo) + gpt52 ----
 agg = pd.read_parquet(os.path.join(RA, "per_seed_agg.parquet"))
 agg = agg[agg.task == "salary_rec"]

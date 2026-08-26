@@ -58,6 +58,11 @@ REPO_ROOT = os.environ.get("CUES_ROOT", os.path.dirname(os.path.dirname(HERE)))
 DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 PROMPTS   = os.path.join(DATA_DIR, "prompts")
 GPT_RUN   = os.path.join(DATA_DIR, "gpt_run")
+
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from cues_io import require_dir, require_file, require_any
+require_dir(PROMPTS, "prompt directory (data/prompts)")
 SAFE_PARQUET_MB = 50  # never read a fallback parquet larger than this into RAM
 
 TASKS = ["medical_advice", "legal_advice", "salary_rec"]

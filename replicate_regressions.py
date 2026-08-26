@@ -33,6 +33,11 @@ DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 # see README for how to obtain/build them.
 SHARE_DIR = os.environ.get("CUES_MASTER_DIR", os.path.join(DATA_DIR, "masters"))
 OUT_ROOT = os.path.join(HERE, "results")
+
+from cues_io import require_dir, require_file, require_any
+require_dir(SHARE_DIR, "master-table directory (data/masters)")
+require_any([os.path.join(SHARE_DIR, "medical_master.parquet"),
+             os.path.join(SHARE_DIR, "legal_salary_master.parquet")], "master tables")
 os.makedirs(OUT_ROOT, exist_ok=True)
 
 READABILITY_COLS = ["type_token_ratio", "flesch_kincaid_grade", "avg_sentence_length"]

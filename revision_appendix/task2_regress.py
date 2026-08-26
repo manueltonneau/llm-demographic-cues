@@ -6,6 +6,7 @@ Extended   = base + token_len + ttr + dep_depth + vader + polite
 All within-prompt demeaned (prompt fixed effects), OLS with no intercept.
 """
 import os
+import sys
 import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
@@ -89,6 +90,10 @@ for model in MODELS:
               f"INF base={rec['inf_base_coef']:+.4g}(p{rec['inf_base_p']:.0e})->ext={rec['inf_ext_coef']:+.4g}(p{rec['inf_ext_p']:.0e})  "
               f"CUE base={rec['cue_base_coef']:+.4g}->ext={rec['cue_ext_coef']:+.4g}", flush=True)
         del m, d
+
+if not rows:
+    sys.exit("[error] no master tables found under results_all_models/.\n"
+             "        Build them first:  python build_master_and_regress.py llama3.1 olmo2 gpt52")
 
 res = pd.DataFrame(rows)
 res.to_csv(os.path.join(RA, "task2_extended_controls.csv"), index=False)

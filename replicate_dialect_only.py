@@ -26,6 +26,11 @@ DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 # see README for how to obtain/build them.
 SHARE = os.environ.get("CUES_MASTER_DIR", os.path.join(DATA_DIR, "masters"))
 OUT   = os.path.join(HERE, "results_dialect")
+
+from cues_io import require_dir, require_file, require_any
+require_dir(SHARE, "master-table directory (data/masters)")
+require_any([os.path.join(SHARE, "medical_master.parquet"),
+             os.path.join(SHARE, "legal_salary_master.parquet")], "master tables")
 os.makedirs(OUT, exist_ok=True)
 
 VALID_RACE_PRED = {"Black", "White", "Unknown"}

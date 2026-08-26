@@ -44,6 +44,11 @@ RP_DIR     = os.path.join(DATA_DIR, "decoder_model_responses_race_pred")
 RS_DIR     = os.path.join(DATA_DIR, "decoder_model_responses_cleaned")
 OUT_ROOT   = os.path.join(HERE, "results_all_models")
 FK_CACHE   = os.path.join(HERE, "fk_cache")
+
+from cues_io import require_dir, require_file, require_any, require_produced
+require_dir(PROMPT_DIR, "prompt directory (data/prompts)")
+require_dir(RP_DIR, "race-prediction responses (data/decoder_model_responses_race_pred)")
+require_dir(RS_DIR, "cleaned responses (data/decoder_model_responses_cleaned)")
 os.makedirs(OUT_ROOT, exist_ok=True)
 
 CUES = [
@@ -330,6 +335,9 @@ def main():
     models = sys.argv[1:] if len(sys.argv) > 1 else ["olmo2"]
     for m in models:
         run_for_model(m)
+    require_produced(
+        sum(len(files) for _, _, files in os.walk(OUT_ROOT)),
+        "result files")
 
 
 if __name__ == "__main__":

@@ -56,6 +56,11 @@ ROOT = os.environ.get("CUES_ROOT", os.path.abspath(os.path.join(HERE, "..", ".."
 DATA_DIR = os.environ.get("CUES_DATA_DIR", os.path.join(ROOT, "data"))
 PLOT = os.path.join(DATA_DIR, "plot_data")
 
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from cues_io import require_dir, require_file, require_any
+require_dir(PLOT, "outcome-ratio tables (data/plot_data)")
+
 TASK_FILES = {
     "medical": "medical_advice_likelihood_ratios_ALL_MODELS.csv",
     "legal":   "legal_advice_likelihood_ratios_ALL_MODELS.csv",

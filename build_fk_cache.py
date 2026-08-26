@@ -22,6 +22,9 @@ REPO_ROOT  = os.environ.get("CUES_ROOT", os.path.dirname(HERE))
 DATA_DIR   = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 PROMPT_DIR = os.path.join(DATA_DIR, "prompts")
 CACHE_DIR  = os.path.join(HERE, "fk_cache")
+
+from cues_io import require_dir, require_file, require_any, require_produced
+require_dir(PROMPT_DIR, "prompt directory (data/prompts)")
 os.makedirs(CACHE_DIR, exist_ok=True)
 
 CUES = [
@@ -76,10 +79,13 @@ def build_one(task: str, cue: str, n_proc: int):
 def main():
     n_proc = max(1, cpu_count() - 1)
     print(f"Using {n_proc} processes")
+    built = 0
     for task in TASKS:
         for cue in CUES:
             msg = build_one(task, cue, n_proc)
             print(msg, flush=True)
+            built += not msg.startswith("[skip]")
+    require_produced(built, "cache files")
 
 
 if __name__ == "__main__":

@@ -18,6 +18,11 @@ HERE      = os.path.dirname(os.path.abspath(__file__))             # revision_ap
 REPO_ROOT = os.environ.get("CUES_ROOT", os.path.dirname(os.path.dirname(HERE)))
 DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 DATA = os.path.join(DATA_DIR, "decoder_model_responses_cleaned")
+
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from cues_io import require_dir, require_file, require_any
+require_dir(DATA, "cleaned responses (data/decoder_model_responses_cleaned)")
 OUT  = HERE
 
 MODELS = {"llama3.1", "olmo2"}

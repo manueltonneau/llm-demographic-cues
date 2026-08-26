@@ -11,6 +11,9 @@ DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 RP_DIR = os.path.join(DATA_DIR, "decoder_model_responses_race_pred")
 OUT    = os.path.join(HERE, "results_recall")
 
+from cues_io import require_dir, require_file, require_any
+require_dir(RP_DIR, "race-prediction responses (data/decoder_model_responses_race_pred)")
+
 VALID = {"Black", "White", "Unknown"}
 TASKS = ["medical_advice", "legal_advice", "salary_rec"]
 CUES  = [

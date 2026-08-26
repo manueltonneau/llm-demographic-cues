@@ -30,6 +30,11 @@ RP_DIR = os.path.join(DATA_DIR, "decoder_model_responses_race_pred")
 RS_DIR = os.path.join(DATA_DIR, "decoder_model_responses_cleaned")
 FK_DIR = os.path.join(HERE, "fk_cache")
 OUT    = os.path.join(HERE, "results_dialect_allmodels")
+
+from cues_io import require_dir, require_file, require_any
+require_dir(RP_DIR, "race-prediction responses (data/decoder_model_responses_race_pred)")
+require_dir(RS_DIR, "cleaned responses (data/decoder_model_responses_cleaned)")
+require_dir(FK_DIR, "Flesch-Kincaid cache -- run build_fk_cache.py first")
 os.makedirs(OUT, exist_ok=True)
 
 VALID_RACE_PRED = {"Black", "White", "Unknown"}

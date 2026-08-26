@@ -26,12 +26,19 @@ for Appendix B.3).
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python -m spacy download en_core_web_sm     # only for revision_appendix/task2_features.py
 
-CUES_DATA_DIR=/path/to/data python replicate_paper_specs.py
+# Runs on the committed result tables alone, no data download needed:
+python revision_appendix/task_verify_c4.py
+
+# Everything else needs the released data (see below):
+CUES_DATA_DIR=/path/to/data python race_pred_recall.py
 ```
 
-Tested with Python 3.12.
+Tested with Python 3.12. `python -m spacy download en_core_web_sm` is needed
+only by `revision_appendix/task2_features.py`.
+
+Any script whose inputs are missing stops immediately with one line naming the
+missing path, before writing anything.
 
 ## Data
 
@@ -48,6 +55,7 @@ data/
 ├── decoder_model_responses_race_pred/<task>_<cue>_constrained_<model>_seed_0.csv
 ├── decoder_model_responses_cleaned/<task>_<cue>_constrained_<model>_seed_<0|1|2>.csv
 ├── plot_data/                                                # per-cue outcome ratios behind Figures 3 and 11
+├── gpt_run/                                                  # GPT-5.2 batch requests (Appendix B.3 harness only)
 └── masters/                                                  # pre-built master tables (optional)
     ├── medical_master.parquet
     └── legal_salary_master.parquet
@@ -78,6 +86,7 @@ read the per-`(task, cue, model)` prompt and response files directly.
 | Path | What it is |
 |------|------------|
 | `requirements.txt` | Python dependencies (pinned). |
+| `cues_io.py` | Shared input-location helpers: every script checks its inputs up front and stops with one actionable line if they are missing. |
 | `build_fk_cache.py` | Precomputes Flesch–Kincaid grade per prompt → `fk_cache/`. Run first. |
 | `build_master_and_regress.py` | Builds per-(model, task) master tables and the cross-model regressions → `results_all_models/`. |
 | `replicate_paper_specs.py` | Three main regression tables for LLaMA-3.1 → `results_paper/`. |

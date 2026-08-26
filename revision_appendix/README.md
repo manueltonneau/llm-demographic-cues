@@ -1,7 +1,8 @@
 # Appendix analyses
 
-Self-contained scripts behind the paper's appendix analyses. Each resolves its
-own paths from `dirname(__file__)`, so it runs from anywhere:
+Scripts behind the paper's appendix analyses. Each resolves its own paths from
+`dirname(__file__)`, so it runs from any working directory as long as it stays
+inside the repository (it imports `cues_io.py` from the repo root):
 
 ```bash
 python revision_appendix/<script>.py
