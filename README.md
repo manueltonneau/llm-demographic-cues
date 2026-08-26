@@ -78,8 +78,16 @@ no code edits are needed.
 | `CUES_FONT_DIR` | unset | Optional directory of CMU Serif `.ttf` files, so `revision_appendix/make_recall_fig.py` matches the paper's typeface. |
 
 The `masters/` files are required only by `replicate_paper_specs.py`,
-`replicate_regressions.py` and `replicate_dialect_only.py`. The other scripts
-read the per-`(task, cue, model)` prompt and response files directly.
+`replicate_regressions.py` and `replicate_dialect_only.py`, and are **not part of
+the data release** (they belong to an earlier pipeline). Rebuild them from the
+released files with:
+
+```bash
+python build_asl_cache.py     # once, needs data/prompts
+python build_masters.py       # -> $CUES_MASTER_DIR/{medical,legal_salary}_master.parquet
+```
+
+The other scripts read the per-`(task, cue, model)` response files directly.
 
 ## Contents
 
@@ -88,6 +96,8 @@ read the per-`(task, cue, model)` prompt and response files directly.
 | `requirements.txt` | Python dependencies (pinned). |
 | `cues_io.py` | Shared input-location helpers: every script checks its inputs up front and stops with one actionable line if they are missing. |
 | `build_fk_cache.py` | Precomputes Flesch–Kincaid grade per prompt → `fk_cache/`. Run first. |
+| `build_asl_cache.py` | Precomputes average sentence length per prompt → `asl_cache/`. Needed by `build_masters.py`. |
+| `build_masters.py` | Rebuilds the two master tables the three `replicate_*` scripts read → `<CUES_MASTER_DIR>/`. |
 | `build_master_and_regress.py` | Builds per-(model, task) master tables and the cross-model regressions → `results_all_models/`. |
 | `replicate_paper_specs.py` | Three main regression tables for LLaMA-3.1 → `results_paper/`. |
 | `replicate_regressions.py` | Eight nested OLS specifications (appendix) → `results/`. |
@@ -108,6 +118,7 @@ Two large generated artifacts are reproducible, so they ship with the data
 release rather than with this repository:
 
 - `fk_cache/` (~25 MB) — rebuild with `python build_fk_cache.py`
+- `asl_cache/` (~25 MB) — rebuild with `python build_asl_cache.py`
 - `results_all_models/**/master.parquet` (~38 MB) — rebuild with
   `python build_master_and_regress.py llama3.1 olmo2 gpt52`
 
@@ -124,6 +135,8 @@ independent. A full run:
 
 ```bash
 python build_fk_cache.py                                   # → fk_cache/  (run once)
+python build_asl_cache.py                                  # → asl_cache/ (run once)
+python build_masters.py                                    # → masters/   (for the replicate_* scripts)
 python build_master_and_regress.py llama3.1 olmo2 gpt52    # → results_all_models/
 python replicate_paper_specs.py                            # → results_paper/
 python replicate_regressions.py                            # → results/        (args: medical legal salary)

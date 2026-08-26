@@ -8,6 +8,7 @@ venv/
 
 # generated locally, shipped with the data release (see README)
 fk_cache/
+asl_cache/
 results_all_models/**/master.parquet
 
 # large intermediates and API batch state
