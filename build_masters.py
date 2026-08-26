@@ -121,66 +121,93 @@ def features(task):
     return _FEAT[task]
 
 
-def build_cell(task, cue, model):
-    rs = _read_csv(os.path.join(RS_DIR, f"{task}_{cue}_constrained_{model}_seed_0.csv"))
-    if rs is None:
+def iter_cell(task, cue, model, chunksize=200_000):
+    """Yield the master rows for one (task, cue, model) cell, a chunk at a time.
+
+    The response CSVs reach 2.6 GB, which pandas would expand well past available
+    RAM if read whole, so they are streamed. Everything joined onto them (race
+    predictions, the two caches, the feature table) is small and loaded once.
+    """
+    rs_path = os.path.join(RS_DIR, f"{task}_{cue}_constrained_{model}_seed_0.csv")
+    rp_path = os.path.join(RP_DIR, f"{task}_{cue}_constrained_{model}_seed_0.csv")
+    if not os.path.exists(rs_path):
         return None, f"[skip] {task}/{cue}/{model}: no responses"
-    rp = _read_csv(os.path.join(RP_DIR, f"{task}_{cue}_constrained_{model}_seed_0.csv"))
-    if rp is None:
+    if not os.path.exists(rp_path):
         return None, f"[skip] {task}/{cue}/{model}: no race predictions"
 
-    keys = [k for k in keys_for_cue(cue) if k in rs.columns and k in rp.columns]
+    rp = pd.read_csv(rp_path, low_memory=False).rename(
+        columns={"response_text": "race_pred"})
+    head = pd.read_csv(rs_path, nrows=0)
+    keys = [k for k in keys_for_cue(cue) if k in head.columns and k in rp.columns]
     if "prompt_id" not in keys:
         return None, f"[skip] {task}/{cue}/{model}: no usable merge key"
-
-    # race_pred lives in the prediction file's response_text column
-    rp = rp.rename(columns={"response_text": "race_pred"})
     rp_slim = rp[keys + ["race_pred"]].drop_duplicates(subset=keys)
+    del rp
 
-    keep = keys + [c for c in ["race", "gender", "response_text", "response_final",
-                               "salary_final"] if c in rs.columns and c not in keys]
-    m = rs[keep].merge(rp_slim, on=keys, how="inner")
-
-    # salary answers are parsed downstream from response_text; keep both columns
-    if "response_final" not in m.columns:
-        m["response_final"] = m["salary_final"] if "salary_final" in m.columns else np.nan
-    m = m.drop(columns=[c for c in ["salary_final"] if c in m.columns])
-
-    for dirname, col in ((FK_DIR, "flesch_kincaid_grade"), (ASL_DIR, "avg_sentence_length")):
+    caches = []
+    for dirname, col in ((FK_DIR, "flesch_kincaid_grade"),
+                         (ASL_DIR, "avg_sentence_length")):
         cache = _cache(dirname, task, cue, col)
         if cache is None:
-            m[col] = np.nan
-            continue
-        ck = [k for k in keys if k in cache.columns]
-        m = m.merge(cache[ck + [col]].drop_duplicates(subset=ck), on=ck, how="left")
+            caches.append((None, col, None))
+        else:
+            ck = [k for k in keys if k in cache.columns]
+            caches.append((cache[ck + [col]].drop_duplicates(subset=ck), col, ck))
 
     feat = features(task)
-    if feat is None:
-        m["type_token_ratio"] = np.nan
-        m["prompt_vader"] = np.nan
-    else:
-        m["_race_l"] = m["race"].astype(str).str.lower() if "race" in m.columns else ""
-        f = feat[feat["id_cue"] == cue]
-        m = m.merge(f.rename(columns={"race": "_race_l"}).drop(columns=["id_cue"]),
-                    on=["prompt_id", "_race_l"], how="left").drop(columns=["_race_l"])
+    feat_cue = None if feat is None else (
+        feat[feat["id_cue"] == cue].drop(columns=["id_cue"])
+                                   .rename(columns={"race": "_race_l"}))
 
-    m["id_cue"] = cue
-    m["model"] = model
-    m["category"] = task
-    m["prompt_id"] = pd.to_numeric(m["prompt_id"], errors="coerce").astype("Int64")
-    m = m[m["prompt_id"].notna()]
-    m["prompt_id"] = m["prompt_id"].astype("int64")
-    m["message_id"] = f"{cue}_constrained_" + m["prompt_id"].astype(str)
+    def _chunks():
+        for rs in pd.read_csv(rs_path, chunksize=chunksize, low_memory=False):
+            keep = keys + [c for c in ["race", "gender", "response_text",
+                                       "response_final", "salary_final"]
+                           if c in rs.columns and c not in keys]
+            m = rs[keep].merge(rp_slim, on=keys, how="inner")
+            if m.empty:
+                continue
+            if "response_final" not in m.columns:
+                m["response_final"] = (m["salary_final"] if "salary_final" in m.columns
+                                       else np.nan)
+            m = m.drop(columns=[c for c in ["salary_final"] if c in m.columns])
 
-    for c in OUT_COLS:
-        if c not in m.columns:
-            m[c] = np.nan
-    for c in ("race", "gender", "race_pred", "response_text", "response_final"):
-        m[c] = m[c].astype("object").where(m[c].notna(), None)
-        m[c] = m[c].map(lambda v: None if v is None else str(v))
-    for c in ("type_token_ratio", "flesch_kincaid_grade", "avg_sentence_length", "prompt_vader"):
-        m[c] = pd.to_numeric(m[c], errors="coerce").astype("float64")
-    return m[OUT_COLS], f"[ok]   {task}/{cue}/{model}  {len(m):,} rows"
+            for cache, col, ck in caches:
+                if cache is None:
+                    m[col] = np.nan
+                else:
+                    m = m.merge(cache, on=ck, how="left")
+
+            if feat_cue is None:
+                m["type_token_ratio"] = np.nan
+                m["prompt_vader"] = np.nan
+            else:
+                m["_race_l"] = (m["race"].astype(str).str.lower()
+                                if "race" in m.columns else "")
+                m = m.merge(feat_cue, on=["prompt_id", "_race_l"],
+                            how="left").drop(columns=["_race_l"])
+
+            m["id_cue"] = cue
+            m["model"] = model
+            m["category"] = task
+            m["prompt_id"] = pd.to_numeric(m["prompt_id"], errors="coerce").astype("Int64")
+            m = m[m["prompt_id"].notna()]
+            if m.empty:
+                continue
+            m["prompt_id"] = m["prompt_id"].astype("int64")
+            m["message_id"] = f"{cue}_constrained_" + m["prompt_id"].astype(str)
+
+            for c in OUT_COLS:
+                if c not in m.columns:
+                    m[c] = np.nan
+            for c in ("race", "gender", "race_pred", "response_text", "response_final"):
+                m[c] = m[c].map(lambda v: None if pd.isna(v) else str(v))
+            for c in ("type_token_ratio", "flesch_kincaid_grade",
+                      "avg_sentence_length", "prompt_vader"):
+                m[c] = pd.to_numeric(m[c], errors="coerce").astype("float64")
+            yield m[OUT_COLS]
+
+    return _chunks(), f"[ok]   {task}/{cue}/{model}"
 
 
 def main():
@@ -198,15 +225,21 @@ def main():
             for task in tasks:
                 for cue in CUES:
                     for model in MODELS:
-                        df, msg = build_cell(task, cue, model)
-                        print(msg, flush=True)
-                        if df is None or df.empty:
+                        chunks, msg = iter_cell(task, cue, model)
+                        if chunks is None:
+                            print(msg, flush=True)
                             continue
-                        table = pa.Table.from_pandas(df, schema=SCHEMA, preserve_index=False)
-                        if writer is None:
-                            writer = pq.ParquetWriter(path, SCHEMA, compression="snappy")
-                        writer.write_table(table)
-                        rows += len(df)
+                        n = 0
+                        for df in chunks:
+                            table = pa.Table.from_pandas(df, schema=SCHEMA,
+                                                         preserve_index=False)
+                            if writer is None:
+                                writer = pq.ParquetWriter(path, SCHEMA,
+                                                          compression="snappy")
+                            writer.write_table(table)
+                            n += len(df)
+                        rows += n
+                        print(f"{msg}  {n:,} rows", flush=True)
         finally:
             if writer is not None:
                 writer.close()
