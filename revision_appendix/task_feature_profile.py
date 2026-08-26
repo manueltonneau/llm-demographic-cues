@@ -4,7 +4,7 @@ Complements the single Flesch-Kincaid metric with five additional features."""
 import os
 import pandas as pd
 
-RA = os.path.dirname(os.path.abspath(__file__))                    # replication/revision_appendix
+RA = os.path.dirname(os.path.abspath(__file__))                    # revision_appendix
 TASKS = ["medical_advice", "legal_advice", "salary_rec"]
 feat = pd.concat([pd.read_parquet(f"{RA}/task2_features_{t}.parquet") for t in TASKS], ignore_index=True)
 

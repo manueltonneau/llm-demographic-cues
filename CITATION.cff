@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "Different Demographic Cues Yield Inconsistent Conclusions About LLM Personalization and Bias"
+type: software
+authors:
+  - given-names: Manuel
+    family-names: Tonneau
+  - given-names: "Neil K. R."
+    family-names: Sehgal
+  - given-names: Niyati
+    family-names: Malhotra
+  - given-names: Sharif
+    family-names: Kazemi
+  - given-names: Victor
+    family-names: Orozco-Olvera
+  - given-names: "Ana María"
+    family-names: "Muñoz Boudet"
+  - given-names: Lakshmi
+    family-names: Subramanian
+  - given-names: "Samuel P."
+    family-names: Fraiberger
+  - given-names: "Sharath Chandra"
+    family-names: Guntuku
+  - given-names: Valentin
+    family-names: Hofmann
+preferred-citation:
+  type: conference-paper
+  title: "Different Demographic Cues Yield Inconsistent Conclusions About LLM Personalization and Bias"
+  year: 2026
+  collection-title: "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing"
+  authors:
+    - given-names: Manuel
+      family-names: Tonneau
+    - given-names: "Neil K. R."
+      family-names: Sehgal
+    - given-names: Niyati
+      family-names: Malhotra
+    - given-names: Sharif
+      family-names: Kazemi
+    - given-names: Victor
+      family-names: Orozco-Olvera
+    - given-names: "Ana María"
+      family-names: "Muñoz Boudet"
+    - given-names: Lakshmi
+      family-names: Subramanian
+    - given-names: "Samuel P."
+      family-names: Fraiberger
+    - given-names: "Sharath Chandra"
+      family-names: Guntuku
+    - given-names: Valentin
+      family-names: Hofmann

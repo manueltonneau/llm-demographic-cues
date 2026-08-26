@@ -13,5 +13,5 @@ TAKEAWAY: the AAVE effect is not reducible to readability — FK matters in
 the model actually infers race from AAVE (LLaMA-3.1 medical & salary,
 GPT-5.2 salary). It is a mixture we decompose, not pure linguistic form.
 
-Source: replication/results_dialect_allmodels/dialect_allmodels_summary.csv
-        (replication/replicate_dialect_only_allmodels.py). Table -> task_dialect_only_table.tex
+Source: results_dialect_allmodels/dialect_allmodels_summary.csv
+        (replicate_dialect_only_allmodels.py). Table -> task_dialect_only_table.tex

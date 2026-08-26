@@ -31,8 +31,8 @@ import os
 import pandas as pd
 from scipy.stats import norm
 
-HERE     = os.path.dirname(os.path.abspath(__file__))              # replication/revision_appendix
-REPL_DIR = os.path.dirname(HERE)                                   # the replication/ dir
+HERE     = os.path.dirname(os.path.abspath(__file__))              # revision_appendix
+REPL_DIR = os.path.dirname(HERE)                                   # the repo root
 
 MODELS = ["LLaMA-3.1", "OLMo-2", "GPT-5.2"]
 TASKS  = ["medical", "legal", "salary"]

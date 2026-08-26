@@ -33,7 +33,7 @@ import statsmodels.formula.api as smf
 
 warnings.filterwarnings("ignore")
 
-HERE      = os.path.dirname(os.path.abspath(__file__))             # the replication/ dir
+HERE      = os.path.dirname(os.path.abspath(__file__))             # the repo root
 REPO_ROOT = os.environ.get("CUES_ROOT", os.path.dirname(HERE))
 DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 # Pre-built master parquets (medical_master.parquet, legal_salary_master.parquet);

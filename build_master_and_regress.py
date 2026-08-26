@@ -21,7 +21,7 @@ Inputs:
   - Response:  data/decoder_model_responses_cleaned/{task}_{cue}_constrained_{model}_seed_0.csv
 
 Outputs:
-  - replication/results_all_models/{model}/{task}/  (coefficients, summary, side-by-side)
+  - results_all_models/{model}/{task}/  (coefficients, summary, side-by-side)
 """
 import os
 import sys
@@ -36,7 +36,7 @@ import textstat
 
 warnings.filterwarnings("ignore")
 
-HERE       = os.path.dirname(os.path.abspath(__file__))            # the replication/ dir
+HERE       = os.path.dirname(os.path.abspath(__file__))            # the repo root
 REPO_ROOT  = os.environ.get("CUES_ROOT", os.path.dirname(HERE))
 DATA_DIR   = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 PROMPT_DIR = os.path.join(DATA_DIR, "prompts")
@@ -94,7 +94,7 @@ def fk_grade(text):
 
 
 def load_prompts(task: str, cue: str, with_text: bool = False) -> pd.DataFrame:
-    """Prefer the FK cache (replication/fk_cache/<task>_<cue>.parquet) which
+    """Prefer the FK cache (fk_cache/<task>_<cue>.parquet) which
     contains all identity columns + flesch_kincaid_grade pre-computed. Falls
     back to the prompts parquet if cache is absent (and computes FK on demand
     in the caller)."""

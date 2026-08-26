@@ -3,7 +3,7 @@ to extend the Task 3 job-tier figure to all three models. Mirrors agg_per_seed.p
 import os, re, glob
 import pandas as pd
 
-HERE      = os.path.dirname(os.path.abspath(__file__))             # replication/revision_appendix
+HERE      = os.path.dirname(os.path.abspath(__file__))             # revision_appendix
 REPO_ROOT = os.environ.get("CUES_ROOT", os.path.dirname(os.path.dirname(HERE)))
 DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 DATA = os.path.join(DATA_DIR, "decoder_model_responses_cleaned")

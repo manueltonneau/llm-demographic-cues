@@ -67,7 +67,7 @@ no code edits are needed.
 | `CUES_DATA_DIR` | `../data` | The data directory above. |
 | `CUES_MASTER_DIR` | `<CUES_DATA_DIR>/masters` | The two pre-built `*_master.parquet` files. |
 | `CUES_ROOT` | parent of the clone | Only used to derive the default `CUES_DATA_DIR`. |
-| `CUES_FONT_DIR` | unset | Optional directory of CMU Serif `.ttf` files, so `make_recall_fig.py` matches the paper's typeface. |
+| `CUES_FONT_DIR` | unset | Optional directory of CMU Serif `.ttf` files, so `revision_appendix/make_recall_fig.py` matches the paper's typeface. |
 
 The `masters/` files are required only by `replicate_paper_specs.py`,
 `replicate_regressions.py` and `replicate_dialect_only.py`. The other scripts

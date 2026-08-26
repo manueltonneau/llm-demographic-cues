@@ -11,9 +11,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
-HERE      = os.path.dirname(os.path.abspath(__file__))             # replication/revision_appendix
+HERE      = os.path.dirname(os.path.abspath(__file__))             # revision_appendix
 RA        = HERE
-REPL_DIR  = os.path.dirname(HERE)                                  # the replication/ dir
+REPL_DIR  = os.path.dirname(HERE)                                  # the repo root
 REPO_ROOT = os.environ.get("CUES_ROOT", os.path.dirname(REPL_DIR))
 DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 

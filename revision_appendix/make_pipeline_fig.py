@@ -7,8 +7,8 @@ from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 
 plt.rcParams.update({"font.family": "serif", "font.size": 9, "text.usetex": False})
 
-HERE     = os.path.dirname(os.path.abspath(__file__))              # replication/revision_appendix
-REPL_DIR = os.path.dirname(HERE)                                   # the replication/ dir
+HERE     = os.path.dirname(os.path.abspath(__file__))              # revision_appendix
+REPL_DIR = os.path.dirname(HERE)                                   # the repo root
 OUT = os.path.join(REPL_DIR, "figures", "pipeline.pdf")
 
 # cue palette (matches paper)

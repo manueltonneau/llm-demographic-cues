@@ -1,4 +1,4 @@
-# Python dependencies for the replication scripts.
+# Python dependencies for the analysis scripts.
 # Pinned to the versions used to produce the released results; nearby versions
 # should also work. Install with:  pip install -r requirements.txt
 pandas==2.2.3
@@ -14,3 +14,8 @@ pyarrow==19.0.1            # parquet I/O backend for pandas
 # spaCy English model used by revision_appendix/task2_features.py (dependency depth).
 # Install separately after the packages above:
 #   python -m spacy download en_core_web_sm
+
+# Only needed for the Appendix B.3 run-to-run variance harness
+# (revision_appendix/task_gpt_variance_build.py / task_gpt_variance_submit.py),
+# the only scripts here that call a model API:
+#   pip install openai tiktoken

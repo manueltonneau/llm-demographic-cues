@@ -3,7 +3,7 @@ One-shot FK-grade cache builder.
 
 For each (task, cue) prompts parquet, compute Flesch-Kincaid grade per row in
 parallel and save to:
-  replication/fk_cache/{task}_{cue}.parquet
+  fk_cache/{task}_{cue}.parquet
 
 The cache stores all identity columns from the prompts parquet plus
 `flesch_kincaid_grade`, so a downstream merge needs only the natural keys for
@@ -17,7 +17,7 @@ from multiprocessing import Pool, cpu_count
 import pandas as pd
 import textstat
 
-HERE       = os.path.dirname(os.path.abspath(__file__))            # the replication/ dir
+HERE       = os.path.dirname(os.path.abspath(__file__))            # the repo root
 REPO_ROOT  = os.environ.get("CUES_ROOT", os.path.dirname(HERE))
 DATA_DIR   = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 PROMPT_DIR = os.path.join(DATA_DIR, "prompts")

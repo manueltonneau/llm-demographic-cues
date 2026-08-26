@@ -18,7 +18,7 @@ import pandas as pd
 import spacy
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-HERE      = os.path.dirname(os.path.abspath(__file__))             # replication/revision_appendix
+HERE      = os.path.dirname(os.path.abspath(__file__))             # revision_appendix
 REPO_ROOT = os.environ.get("CUES_ROOT", os.path.dirname(os.path.dirname(HERE)))
 DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 PROMPT_DIR = os.path.join(DATA_DIR, "prompts")

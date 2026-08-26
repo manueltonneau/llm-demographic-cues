@@ -10,9 +10,9 @@ import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
 
-HERE     = os.path.dirname(os.path.abspath(__file__))              # replication/revision_appendix
+HERE     = os.path.dirname(os.path.abspath(__file__))              # revision_appendix
 RA       = HERE
-REPL_DIR = os.path.dirname(HERE)                                   # the replication/ dir
+REPL_DIR = os.path.dirname(HERE)                                   # the repo root
 MASTER = {
     "llama3.1": os.path.join(REPL_DIR, "results_all_models/llama3.1/{task}/master.parquet"),
     "olmo2":    os.path.join(REPL_DIR, "results_all_models/olmo2/{task}/master.parquet"),

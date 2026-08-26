@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-HERE = os.path.dirname(os.path.abspath(__file__))                  # replication/revision_appendix
+HERE = os.path.dirname(os.path.abspath(__file__))                  # revision_appendix
 AGG = os.path.join(HERE, "per_seed_agg.parquet")
 MODELS = ["llama3.1", "olmo2"]
 TASKS = ["medical_advice", "legal_advice", "salary_rec"]

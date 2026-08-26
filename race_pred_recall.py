@@ -22,7 +22,7 @@ import pandas as pd
 import numpy as np
 from collections import Counter
 
-HERE      = os.path.dirname(os.path.abspath(__file__))             # the replication/ dir
+HERE      = os.path.dirname(os.path.abspath(__file__))             # the repo root
 REPO_ROOT = os.environ.get("CUES_ROOT", os.path.dirname(HERE))
 DATA_DIR  = os.environ.get("CUES_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 RP_DIR = os.path.join(DATA_DIR, "decoder_model_responses_race_pred")
