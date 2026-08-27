@@ -11,11 +11,11 @@ vaderSentiment==3.3.2
 spacy==3.8.14
 pyarrow==19.0.1            # parquet I/O backend for pandas
 
-# spaCy English model used by revision_appendix/task2_features.py (dependency depth).
+# spaCy English model used by scripts/appendix/task2_features.py (dependency depth).
 # Install separately after the packages above:
 #   python -m spacy download en_core_web_sm
 
 # Only needed for the Appendix B.3 run-to-run variance harness
-# (revision_appendix/task_gpt_variance_build.py / task_gpt_variance_submit.py),
+# (scripts/appendix/task_gpt_variance_build.py / task_gpt_variance_submit.py),
 # the only scripts here that call a model API:
 #   pip install openai tiktoken
