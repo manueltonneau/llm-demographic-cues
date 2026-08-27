@@ -1,5 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite the paper."
+identifiers:
+  - type: other
+    value: "arXiv:2601.18486"
+    description: arXiv preprint
 title: "Different Demographic Cues Yield Inconsistent Conclusions About LLM Personalization and Bias"
 type: software
 authors:
@@ -24,10 +28,13 @@ authors:
   - given-names: Valentin
     family-names: Hofmann
 preferred-citation:
-  type: conference-paper
+  type: article
+  url: "https://arxiv.org/abs/2601.18486"
+  notes: "To appear at EMNLP 2026"
+
   title: "Different Demographic Cues Yield Inconsistent Conclusions About LLM Personalization and Bias"
   year: 2026
-  collection-title: "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing"
+  journal: "arXiv preprint arXiv:2601.18486"
   authors:
     - given-names: Manuel
       family-names: Tonneau

@@ -1,0 +1,17 @@
+DIALECT-ONLY (AAVE) REGRESSION
+====================================================
+Flesch--Kincaid (linguistic-form channel) significant: 8/9 cells.
+Inferred race (demographic-signal channel) estimable: 6/9;
+  of which significant (net of FK): 3/9.
+Both channels significant simultaneously (3/9): LLaMA-3.1/Medical, LLaMA-3.1/Salary, GPT-5.2/Salary.
+Inferred Black not estimable in the 3 OLMo-2 cells: the model predicts
+  White/Unknown for essentially all AAVE prompts (itself evidence that
+  AAVE's demographic signal is weak and model-dependent).
+
+TAKEAWAY: the AAVE effect is not reducible to readability — FK matters in
+8/9 cells, and inferred race adds independent, significant signal wherever
+the model actually infers race from AAVE (LLaMA-3.1 medical & salary,
+GPT-5.2 salary). It is a mixture we decompose, not pure linguistic form.
+
+Source: results/dialect_all_models/dialect_allmodels_summary.csv
+        (replicate_dialect_only_allmodels.py). Table -> task_dialect_only_table.tex
